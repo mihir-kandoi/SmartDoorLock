@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890860561212",
+    "project_id": "iot-mad-door-lock",
+    "storage_bucket": "iot-mad-door-lock.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890860561212:android:00c54d780c53498b78f439",
+        "android_client_info": {
+          "package_name": "com.example.miniproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890860561212-f400jdjh6ukj1v726sk92ianfaug474i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3gbPi11szIhcGzLh-H5lRBxiDZpGxjMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890860561212-f400jdjh6ukj1v726sk92ianfaug474i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
