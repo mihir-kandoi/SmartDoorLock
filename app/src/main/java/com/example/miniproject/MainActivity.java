@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://192.168.0.100:80/";
         try {
             JSONObject json = new JSONObject();
-            json.put("token", getApplicationContext().getSharedPreferences("token_file", Context.MODE_PRIVATE).getString("token",""));
+            json.put("token", getApplicationContext().getSharedPreferences("token_file", Context.MODE_PRIVATE).getString("FCM Token",""));
             final String jsonBody = json.toString();
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, (Response.Listener<String>) response -> {

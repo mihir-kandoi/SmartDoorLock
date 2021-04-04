@@ -1,5 +1,6 @@
 package com.example.miniproject;
 
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -24,10 +25,10 @@ public class FCMService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
-        Log.d("token", s);
+        Log.d("FCM Token", s);
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("token_file", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("token", s);
+        editor.putString("FCM Token", s);
         editor.apply();
     }
 
@@ -37,7 +38,7 @@ public class FCMService extends FirebaseMessagingService {
         Intent intentStartStream = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
         Intent intentUnlockDoor = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
         Intent startApp = new Intent(this, MainActivity.class);
-        startApp.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startApp.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         intentStartStream.putExtra("action", "start stream");
         intentUnlockDoor.putExtra("action", "unlock door");
         PendingIntent startStream = PendingIntent.getBroadcast(getApplicationContext(), 0, intentStartStream, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -57,6 +58,8 @@ public class FCMService extends FirebaseMessagingService {
                 .setAutoCancel(true);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
         // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(0, builder.build());
+        Notification notification = builder.build();
+        notification.defaults |= Notification.DEFAULT_ALL;
+        notificationManager.notify(0, notification);
     }
 }
