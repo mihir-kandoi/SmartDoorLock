@@ -21,7 +21,6 @@ import java.util.Map;
 
 public class FCMService extends FirebaseMessagingService {
 
-
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
@@ -53,7 +52,7 @@ public class FCMService extends FirebaseMessagingService {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_ALARM)
                 .addAction(R.drawable.ic_baseline_lock_open_24, "Unlock door", unlockDoor)
-                .addAction(R.drawable.ic_baseline_view_stream_24, "Start stream", startStream)
+                .addAction(R.drawable.ic_baseline_videocam_24, "Start stream", startStream)
                 .setContentIntent(PIstartApp)
                 .setAutoCancel(true);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());

@@ -1,78 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    tools:openDrawer="start"
     tools:context=".Dashboard">
 
-    <Button
-        android:id="@+id/unlock"
-        android:layout_width="wrap_content"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:text="Unlock Door"
-        app:layout_constraintBottom_toTopOf="@+id/webView"
-        app:layout_constraintEnd_toStartOf="@+id/lock"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/status" />
+        android:layout_width="match_parent">
 
-    <Button
-        android:id="@+id/lock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lock Door"
-        app:layout_constraintBottom_toBottomOf="@+id/unlock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/unlock"
-        app:layout_constraintTop_toTopOf="@+id/unlock" />
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:toolbarId="@+id/toolbar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_startStream"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unlock" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:contentInsetStart="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent">
 
-    <Button
-        android:id="@+id/btn_startStream"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:text="Start Stream"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_stopStream"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/webView" />
+                <ImageButton
+                    android:id="@+id/open_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_menu_24"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/white"
+                    android:padding="12dp" />
 
-    <Button
-        android:id="@+id/btn_stopStream"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop Stream"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_startStream"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_startStream"
-        app:layout_constraintTop_toTopOf="@+id/btn_startStream" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_marginStart="8dp" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="ESP8266 status: "
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_lock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_lock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Lock Door"
+                app:icon="@drawable/ic_outline_lock_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_stream"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/webView"
+                app:layout_constraintTop_toBottomOf="@+id/webView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_stream"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Start Stream"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_baseline_videocam_24"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_lock"
+                app:layout_constraintEnd_toEndOf="@+id/webView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_lock"
+                app:layout_constraintTop_toTopOf="@+id/btn_lock" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:menu="@menu/nav"
+        app:headerLayout="@layout/nav_header"
+        android:layout_gravity="start" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
