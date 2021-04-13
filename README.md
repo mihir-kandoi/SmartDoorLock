@@ -71,8 +71,6 @@ This a project that I created for my Mobile Application Development course. Foll
         
         <img src="https://imgur.com/4nFxTSc.png" width="360" height="740">
 
-        AlertDialog:
-
         The MaterialButtons act as toggle buttons ie. they toggle the door lock and the stream respectively. Once the user clicks on either button, he or she has to authenticate themselves with Biometrics (Face Recognition or Fingerprint or optionally screen unlock depending on the hardware of the phone) and the proper task will be executed after authentication is successful.
         After the task is completed a Snackbar will be displayed as a confirmation.
 
@@ -96,7 +94,7 @@ This a project that I created for my Mobile Application Development course. Foll
     (Links to every component is in the description part of the report)
 
 ## Modules
-1.	Block diagram/description of modules of the app
+1.	Block diagram/description of modules of the app (Use Light Theme for viewing or simply drag the images into a new tab)
 
     Android app:
     
