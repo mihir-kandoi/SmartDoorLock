@@ -24,7 +24,7 @@ This a project that I created for my Mobile Application Development course. Foll
     - Ai-Thinker ESP32-CAM
     - FTDI programmer for ESP32-CAM
     
-    [(Jump to end of page for connection details)]()
+    [(Jump to end of page for connection details)](#physical-connection-breadbaord)
 
 2.  List & explanation of (learned) tools/components used
 
