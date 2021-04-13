@@ -70,6 +70,10 @@ This a project that I created for my Mobile Application Development course. Foll
         Navigation drawer:
         
         <img src="https://imgur.com/4nFxTSc.png" width="360" height="740">
+        
+        AlertDialog:
+        
+        <img src="https://imgur.com/cMQkAA7.png" width="360" height="740">
 
         The MaterialButtons act as toggle buttons ie. they toggle the door lock and the stream respectively. Once the user clicks on either button, he or she has to authenticate themselves with Biometrics (Face Recognition or Fingerprint or optionally screen unlock depending on the hardware of the phone) and the proper task will be executed after authentication is successful.
         After the task is completed a Snackbar will be displayed as a confirmation.
