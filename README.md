@@ -104,7 +104,7 @@ This a project that I created for my Mobile Application Development course. Foll
 
     Firebase Cloud Function:
     
-    <img src="https://imgur.com/VkhYans" width="277" height="522">
+    <img src="https://imgur.com/VkhYans.png" width="277" height="522">
 
     ESP8266 code description:
 
