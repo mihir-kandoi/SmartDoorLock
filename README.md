@@ -134,13 +134,14 @@ This a project that I created for my Mobile Application Development course. Foll
     - In the setup function of the code the controller connects to the WiFi network and starts the HTTP web server. In the loop part of the code the controller is set up to listen for HTTP requests and the state of the push button. When push button is HIGH, the chip sends a POST request to the Firebase Cloud Function to send the notification to the Android app.
     - When the controller received a lock or unlock request it simply toggles the state of the relay pin connected to it, lock or unlocking the door lock appropriately.
 
-2.	Future recommendations
+## Future recommendations
 
-    - Due to time constraints, I could not implement facial recognition through the ESP32-CAM’s camera stream. We would like for it to be added in the future work.
-    - Also, I was not able to figure out how to make the devices communicate over the Internet rather than the local network. Enabling the project to work over the internet will allow the user to control his entire door lock security system from anywhere in the world (with a working internet connection) rather than only inside his local network ie the house or office etc.
-    - I was not able to power the ESP32-CAM via my breadboard power supply. For the future, I aim to power it using my power supply instead of an FTDI programmer chip.
+   - Due to time constraints, I could not implement facial recognition through the ESP32-CAM’s camera stream. We would like for it to be added in the future work.
+   - Also, I was not able to figure out how to make the devices communicate over the Internet rather than the local network. Enabling the project to work over the internet will allow the user to control his entire door lock security system from anywhere in the world (with a working internet connection) rather than only inside his local network ie the house or office etc.
+   - I was not able to power the ESP32-CAM via my breadboard power supply. For the future, I aim to power it using my power supply instead of an FTDI programmer chip.
     
-3.  Physical connection (breadbaord)
-    - To make your own smart door project using this code, connect a relay to pin 5 (D1) which will be responsible for toggling the electronic door lock on or off. Connect your electronic door lock in NC mode to the relay. Connect a single push button to pin 16 (D0) which will act as the doorbell responsible for sending push notification when someone presses on it. A pull down resistor is not required since the program uses a pull down pin on the ESP8266.
-    - For the ESP32-CAM code, I have used the CameraWebServier example in Arduino IDE and modified it a bit so that it uses a fixed IP address (192.168.0.100) and connect to my own local Wi-Fi network. To make these same modifications one can take reference of the ESP8266 code in the repository.
-    
+## Physical connection (breadbaord)
+To make your own smart door project using this code, connect a relay to pin 5 (D1) which will be responsible for toggling the electronic door lock on or off. Connect your electronic door lock in NC mode to the relay. Connect a single push button to pin 16 (D0) which will act as the doorbell responsible for sending push notification when someone presses on it. A pull down resistor is not required since the program uses a pull down pin on the ESP8266.
+
+## A note about the ESP32-CAM code
+For the ESP32-CAM code, I have used the CameraWebServier example in Arduino IDE and modified it a bit so that it uses a fixed IP address (192.168.0.100) and connect to my own local Wi-Fi network. To make these same modifications one can take reference of the ESP8266 code in the repository.
