@@ -132,7 +132,7 @@ This a project that I created for my Mobile Application Development course. Foll
     - An HTTP web server is started so that the controller can send and receive HTTP requests.
     - The controller is connected to a relay which will toggle the electronic door lock on or off and a push button which acts as a doorbell. Pushing on the doorbell will send a notification to the Android app saying that someone is at the door and give the user to unlock the door or start the camera.
     - In the setup function of the code the controller connects to the WiFi network and starts the HTTP web server. In the loop part of the code the controller is set up to listen for HTTP requests and the state of the push button. When push button is HIGH, the chip sends a POST request to the Firebase Cloud Function to send the notification to the Android app.
-    - When the controller received a lock or unlock request it simply toggles the state of the relay pin connected to it, lock or unlocking the door lock appropriately.
+    - When the controller receives a lock or unlock request it simply toggles the state of the relay pin connected to it, lock or unlocking the door lock appropriately.
 
 ## Future recommendations
 
