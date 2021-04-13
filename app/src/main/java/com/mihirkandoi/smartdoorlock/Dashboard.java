@@ -56,7 +56,7 @@ public class Dashboard extends AppCompatActivity {
             if (item.getTitle().toString().equals("About"))
                 new AlertDialog.Builder(Dashboard.this)
                         .setTitle("Made with ❤ by")
-                        .setMessage("Mihir Kandoi - A073\nDev Desai - A070\nDhruv Chhatrala - A068")
+                        .setMessage("Mihir Kandoi - kandoimihir@gmail.com")
                         .setPositiveButton("Ok", null)
                         .show();
             return true;
