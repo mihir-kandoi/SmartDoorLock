@@ -1,7 +1,7 @@
 # Smart Door Lock
 This a project that I created for my Mobile Application Development course. Following is the project report on it.
 
-## Overview:
+## Overview
 
 1.	User Needs (establish the need/originality of the app)
 
@@ -11,7 +11,7 @@ This a project that I created for my Mobile Application Development course. Foll
 
     Design an Android app that will allow you to electronically unlock the door from the comfort of the phone always in your pocket. The phone should receive a notification every time someone rings the door bell and should give the option to the user to unlock the door from anywhere inside the local network of the house. The app may also make use of a camera attached to the door so that the user can see who is at the door before unlocking it remotely. To prevent unauthorized use the of the app/phone, the app should always ask for verification of the user (password or biometrics) before unlocking the door.
 
-# Description:
+## Description
 
 1.  List & explanation of (learned) tools/components used
 
@@ -45,32 +45,44 @@ This a project that I created for my Mobile Application Development course. Foll
     13)	DrawerLayout and NavigationView – Used to display a Navigation drawer as given in Material Design
     14)	MaterialButton – To display buttons with icon support
 
-## Standardized Workable App:
+## Standardized Workable App
 
 1.	User Manual (step-by-Step screenshot and brief about the working of app)
 
     -	On opening the app, the user will be greeted by a splash screen with an embedded gif and a ProgressBar. Here, the app tries to communicate with the ESP8266 and sends the application’s FCM token to it. It does this to firstly make sure that the ESP8266 is online and secondly to send the FCM token so that the ESP8266 can forward it to the Firebase Cloud Function.
 
         Connection successful:
+        
+        <img src="https://imgur.com/8dD73u8.png" width="360" height="740">
 
         Trying to connect:
+        
+        <img src="https://imgur.com/M6Tl5qq.png" width="360" height="740">
 
         Connection failed:
+        
+        <img src="https://imgur.com/hqrGYfQ.png" width="360" height="740">
 
         The splash screen duration is 1.5 seconds. In this duration it will do the tasks mentioned above. While the task is being done the ProgressBar will be displayed. As soon as the task finishes the ProgressBar disappears.
 
     -	The Dashboard activity opens after the splash screen ends. The activity consists of two MaterialButtons, a WebView and a menu button in the Toolbar which will open a Navigation drawer. The navigation drawer consists of a simple header layout and a single menu item with title as “About” on which when clicked shows an AlertDialog with some info about the developers.
 
-        Navigation drawer:	
+        Navigation drawer:
+        
+        <img src="https://imgur.com/4nFxTSc.png" width="360" height="740">
 
         AlertDialog:
 
         The MaterialButtons act as toggle buttons ie. they toggle the door lock and the stream respectively. Once the user clicks on either button, he or she has to authenticate themselves with Biometrics (Face Recognition or Fingerprint or optionally screen unlock depending on the hardware of the phone) and the proper task will be executed after authentication is successful.
         After the task is completed a Snackbar will be displayed as a confirmation.
 
-        Authentication Prompt:	
+        Authentication Prompt:
+        
+        <img src="https://imgur.com/EKzxe7Y.png" width="360" height="740">
 
         Confirmation Snackbar:
+        
+        <img src="https://imgur.com/DQ6UWKK.png" width="360" height="740">
 
         Starting the video stream will enable the WebView which will show the camera output from the ESP32-CAM with black borders: (example)
 
@@ -83,12 +95,16 @@ This a project that I created for my Mobile Application Development course. Foll
     - Material icons which can be found at material.io/icons
     (Links to every component is in the description part of the report)
 
-## Modules:
+## Modules
 1.	Block diagram/description of modules of the app
 
     Android app:
+    
+    <img src="https://imgur.com/ol9vlRY.png" width="946" height="932">
 
     Firebase Cloud Function:
+    
+    <img src="https://imgur.com/VkhYans" width="277" height="522">
 
     ESP8266 code description:
 
