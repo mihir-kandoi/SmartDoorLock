@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+esp8266code.ino
+index.js
