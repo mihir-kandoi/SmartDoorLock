@@ -1,4 +1,4 @@
-package com.example.miniproject;
+package com.mihirkandoi.smartdoorlock;
 
 import android.content.Context;
 

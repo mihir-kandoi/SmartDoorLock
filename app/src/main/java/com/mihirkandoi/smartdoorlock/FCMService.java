@@ -1,13 +1,10 @@
-package com.example.miniproject;
+package com.mihirkandoi.smartdoorlock;
 
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import androidx.annotation.NonNull;

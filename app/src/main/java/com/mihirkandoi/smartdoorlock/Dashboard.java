@@ -1,4 +1,4 @@
-package com.example.miniproject;
+package com.mihirkandoi.smartdoorlock;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.miniproject">
+    package="com.mihirkandoi.smartdoorlock">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/smart_door_lock"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiniProject">
-        <activity android:name=".Dashboard" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.SmartDoorLock">
+        <activity android:name="com.mihirkandoi.smartdoorlock.Dashboard" />
+        <activity android:name="com.mihirkandoi.smartdoorlock.MainActivity">
             <intent-filter>
                 <action android:name="MainActivity" />
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <service
-            android:name=".FCMService"
+            android:name="com.mihirkandoi.smartdoorlock.FCMService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -42,7 +42,7 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/black" />
 
-        <receiver android:name=".MyBroadcastReceiver"  android:exported="false" />
+        <receiver android:name="com.mihirkandoi.smartdoorlock.MyBroadcastReceiver"  android:exported="false" />
 
     </application>
 
