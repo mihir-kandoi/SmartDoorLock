@@ -13,7 +13,20 @@ This a project that I created for my Mobile Application Development course. Foll
 
 ## Description
 
-1.  List & explanation of (learned) tools/components used
+1.  Hardware prerequisites
+    - Broadboard
+    - LED/Electronic Door Lock
+    - Jumper cables
+    - Android Device (emulator will also work)
+    - Push button
+    - Electronic relay
+    - ESP8266/NodeMCU
+    - Ai-Thinker ESP32-CAM
+    - FTDI programmer for ESP32-CAM
+    
+    [(Jump to end of page for connection details)]()
+
+2.  List & explanation of (learned) tools/components used
 
     The list of tools/components that were used in the app which were already taught to us in class are:
 
@@ -26,7 +39,7 @@ This a project that I created for my Mobile Application Development course. Foll
     7)	ProgressBar – To show loading status while asynchronous task is being done in the background
     8)	SharedPreferences – To store FCM token in cache memory
 
-2.	List & explanation of (self-learned) tools/components used
+3.	List & explanation of (self-learned) tools/components used
 
     The list of tools/components that were used in the app which we came across and learnt by ourselves are:
 
@@ -75,7 +88,8 @@ This a project that I created for my Mobile Application Development course. Foll
         
         <img src="https://imgur.com/cMQkAA7.png" width="360" height="740">
 
-        The MaterialButtons act as toggle buttons ie. they toggle the door lock and the stream respectively. Once the user clicks on either button, he or she has to authenticate themselves with Biometrics (Face Recognition or Fingerprint or optionally screen unlock depending on the hardware of the phone) and the proper task will be executed after authentication is successful.
+     -  The MaterialButtons act as toggle buttons ie. they toggle the door lock and the stream respectively. Once the user clicks on either button, he or she has to authenticate themselves with Biometrics (Face Recognition or Fingerprint or optionally screen unlock depending on the hardware of the phone) and the proper task will be executed after authentication is successful.
+     
         After the task is completed a Snackbar will be displayed as a confirmation.
 
         Authentication Prompt:
@@ -86,9 +100,13 @@ This a project that I created for my Mobile Application Development course. Foll
         
         <img src="https://imgur.com/DQ6UWKK.png" width="360" height="740">
 
-        Starting the video stream will enable the WebView which will show the camera output from the ESP32-CAM with black borders: (example)
+     -  Starting the video stream will enable the WebView which will show the camera output from the ESP32-CAM with black borders: (example)
 
-    -	The push button on the breadboard connected to NodeMCU acts as a doorbell, pushing on which will send a notification to the user with two options presented when someone (hypothetically) rings the bell. Unlock the door or start stream (to check who it is before unlocking):
+        <img src="https://imgur.com/B6YhBxM.png" width="360" height="740">
+
+     -	The push button on the breadboard connected to NodeMCU acts as a doorbell, pushing on which will send a notification to the user with two options presented when someone (hypothetically) rings the bell. Unlock the door or start stream (to check who it is before unlocking):
+
+        <img src="https://imgur.com/B3Vc7b7.png" width="360" height="740">
  
 2.	Reference Material Design topics used for which components
     - MaterialButtons to display icons inside Button
@@ -110,13 +128,19 @@ This a project that I created for my Mobile Application Development course. Foll
 
     ESP8266 code description:
 
-    The ESP8266 chip is hardcoded to setup to a specific WiFi network with a specific IP address so that it is easy for other devices to connect to it. Without a static IP address, the chip may connect to the network with different IP addresses each time which will make it hard for other devices to find the chip in the first place.
-    An HTTP web server is started so that the controller can send and receive HTTP requests.
-    The controller is connected to a relay which will toggle the electronic door lock on or off and a push button which acts as a doorbell. Pushing on the doorbell will send a notification to the Android app saying that someone is at the door and give the user to unlock the door or start the camera.
-    In the setup function of the code the controller connects to the WiFi network and starts the HTTP web server. In the loop part of the code the controller is set up to listen for HTTP requests and the state of the push button. When push button is HIGH, the chip sends a POST request to the Firebase Cloud Function to send the notification to the Android app.
-    When the controller received a lock or unlock request it simply toggles the state of the relay pin connected to it, lock or unlocking the door lock appropriately.
+    - The ESP8266 chip is hardcoded to setup to a specific WiFi network with a specific IP address so that it is easy for other devices to connect to it. Without a static IP address, the chip may connect to the network with different IP addresses each time which will make it hard for other devices to find the chip in the first place.
+    - An HTTP web server is started so that the controller can send and receive HTTP requests.
+    - The controller is connected to a relay which will toggle the electronic door lock on or off and a push button which acts as a doorbell. Pushing on the doorbell will send a notification to the Android app saying that someone is at the door and give the user to unlock the door or start the camera.
+    - In the setup function of the code the controller connects to the WiFi network and starts the HTTP web server. In the loop part of the code the controller is set up to listen for HTTP requests and the state of the push button. When push button is HIGH, the chip sends a POST request to the Firebase Cloud Function to send the notification to the Android app.
+    - When the controller received a lock or unlock request it simply toggles the state of the relay pin connected to it, lock or unlocking the door lock appropriately.
 
 2.	Future recommendations
 
-    Due to time constraints, I could not implement facial recognition through the ESP32-CAM’s camera stream. We would like for it to be added in the future work.
-    Also, I was not able to figure out how to make the devices communicate over the Internet rather than the local network. Enabling the project to work over the internet will allow the user to control his entire door lock security system from anywhere in the world (with a working internet connection) rather than only inside his local network ie the house or office etc.
+    - Due to time constraints, I could not implement facial recognition through the ESP32-CAM’s camera stream. We would like for it to be added in the future work.
+    - Also, I was not able to figure out how to make the devices communicate over the Internet rather than the local network. Enabling the project to work over the internet will allow the user to control his entire door lock security system from anywhere in the world (with a working internet connection) rather than only inside his local network ie the house or office etc.
+    - I was not able to power the ESP32-CAM via my breadboard power supply. For the future, I aim to power it using my power supply instead of an FTDI programmer chip.
+    
+3.  Physical connection (breadbaord)
+    - To make your own smart door project using this code, connect a relay to pin 5 (D1) which will be responsible for toggling the electronic door lock on or off. Connect your electronic door lock in NC mode to the relay. Connect a single push button to pin 16 (D0) which will act as the doorbell responsible for sending push notification when someone presses on it. A pull down resistor is not required since the program uses a pull down pin on the ESP8266.
+    - For the ESP32-CAM code, I have used the CameraWebServier example in Arduino IDE and modified it a bit so that it uses a fixed IP address (192.168.0.100) and connect to my own local Wi-Fi network. To make these same modifications one can take reference of the ESP8266 code in the repository.
+    
